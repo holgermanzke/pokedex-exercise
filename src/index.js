@@ -1,6 +1,7 @@
 import {
   createNoPokemons,
   setChild,
+  removeChilds,
   resetInput,
   createPokemonElements
 } from './api/elements';
@@ -27,6 +28,8 @@ searchInput.addEventListener('input', event => {
    * You can verify that this event is fired in the Browser console.
    * Can you find the value of searchInput in this event?
    */
+  removeChilds(resultsElement);
+  console.log('removeChild from', parent);
   console.log(getPokemonsByName('pika'));
   console.log('Great! This event is fired:', event, searchInput.value);
 

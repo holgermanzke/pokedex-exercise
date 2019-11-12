@@ -27,8 +27,6 @@ export function createPokemonElements(pokemons) {
 export function createPokemonElement(pokemon) {
   const itemElement = document.createElement('li');
   itemElement.innerHTML = pokemon.name;
-  // const itemElement2 = document.createElement('li');
-  // itemElement2.innerHTML = pokemon.id;
   return itemElement;
   /**
    * This function could create a new element and displays the properties of a pokemon.
@@ -37,6 +35,7 @@ export function createPokemonElement(pokemon) {
 
 export function removeChilds(parent) {
   parent.innerHTML = '';
+  console.log('removeChild from', parent);
 }
 
 export function appendChild(parent, child) {
