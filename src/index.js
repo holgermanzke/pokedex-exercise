@@ -24,6 +24,7 @@ setChild(resultsElement, createPokemonElements(pokemons));
  * Find the correct event to listen for input changes.
  */
 searchInput.addEventListener('input', event => {
+
   // removeChilds(resultsElement);
   const searchValue = event.target.value;
   const pokemons = getPokemonsByName(searchValue);
@@ -35,7 +36,7 @@ searchInput.addEventListener('input', event => {
     setChild(resultsElement, filterResults);
   }
   console.log(pokemons.length);
-  /**
+/**
    * Search for your pokemons now, create elements and add them to your results.
    */
 });
