@@ -1,8 +1,5 @@
-/**
- * <div class="results__empty">
- *    No Pokemons found
- * </div>
- */
+import { getPokemonDetails } from './pokemons';
+
 export function createNoPokemons() {
   const element = document.createElement('div');
   element.className = 'results__empty';
@@ -27,6 +24,10 @@ export function createPokemonElements(pokemons) {
 export function createPokemonElement(pokemon) {
   const itemElement = document.createElement('li');
   itemElement.innerHTML = pokemon.name;
+  itemElement.addEventListener('click', async () => {
+    const pokemonDetails = await getPokemonDetails(pokemon.url);
+    console.log(pokemonDetails);
+  });
   return itemElement;
   /**
    * This function could create a new element and displays the properties of a pokemon.
