@@ -32,10 +32,29 @@ export function getPokemonsByName(pokemonName) {
 }
 
 export function sortPokemonsByName(pokemons, sortDirection = 'ASC') {
+  const sortedPokemons = pokemons.sort((pokemonNameA, pokemonNameB) => {
+    const nameA = pokemonNameA.name.toLowerCase();
+    const nameB = pokemonNameB.name.toLowerCase();
+    if (nameA > nameB) {
+      return 1;
+    }
+
+    if (nameA < nameB) {
+      return -1;
+    }
+    return 0;
+  });
+
   /**
    * `sortDirection` could be `ASC` or `DESC`. Try to reverse the results if `sortDirection` is `DESC`.
    *
    * See Array.prototype.sort()
    */
-  return pokemons;
+  // return pokemons
+
+  if (sortDirection === 'DESC') {
+    sortedPokemons.reverse();
+  }
+
+  return sortedPokemons;
 }

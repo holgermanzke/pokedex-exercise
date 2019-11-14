@@ -5,14 +5,19 @@ import {
   resetInput,
   createPokemonElements
 } from './api/elements';
-import { getPokemonsByName, getAllPokemons } from './api/pokemons';
+import {
+  getPokemonsByName,
+  getAllPokemons,
+  sortPokemonsByName
+} from './api/pokemons';
 
 // Query elements
 const searchInput = document.querySelector('.search__input');
 const resultsElement = document.querySelector('.results');
 
 // Get All Pokemons
-const pokemons = getAllPokemons();
+let pokemons = getAllPokemons();
+pokemons = sortPokemonsByName(pokemons);
 
 // Reset input and results
 resetInput(searchInput);
@@ -24,10 +29,10 @@ setChild(resultsElement, createPokemonElements(pokemons));
  * Find the correct event to listen for input changes.
  */
 searchInput.addEventListener('input', event => {
-
   // removeChilds(resultsElement);
   const searchValue = event.target.value;
-  const pokemons = getPokemonsByName(searchValue);
+  let pokemons = getPokemonsByName(searchValue);
+  pokemons = sortPokemonsByName(pokemons, 'ASC');
   if (pokemons.length > 0) {
     const filterResults = createPokemonElements(pokemons);
     setChild(resultsElement, filterResults);
@@ -35,8 +40,7 @@ searchInput.addEventListener('input', event => {
     const filterResults = createNoPokemons();
     setChild(resultsElement, filterResults);
   }
-  console.log(pokemons.length);
-/**
+  /**
    * Search for your pokemons now, create elements and add them to your results.
    */
 });

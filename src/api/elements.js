@@ -35,7 +35,6 @@ export function createPokemonElement(pokemon) {
 
 export function removeChilds(parent) {
   parent.innerHTML = '';
-  console.log('removeChild from', parent);
 }
 
 export function appendChild(parent, child) {
