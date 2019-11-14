@@ -26,6 +26,8 @@ export function createPokemonElement(pokemon) {
   itemElement.innerHTML = pokemon.name;
   itemElement.addEventListener('click', async () => {
     const pokemonDetails = await getPokemonDetails(pokemon.url);
+    imageElement = document.createElement('img');
+    itemElement.innerHTML = pokemon;
     console.log(pokemonDetails);
   });
   return itemElement;
